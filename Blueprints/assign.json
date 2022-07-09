@@ -1,7 +1,7 @@
 {
     "identity": {
         "type": "userAssigned",
-        "tenantId": "#### TENANT_ID ####",
+        "tenantId": "/subscriptions/#### SUBSCRIPTION ID ####/resourcegroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/#### USER ASSIGNED IDENTITY NAME ####",
         "userAssignedIdentities": {
             "#### RESOURCE ID OF USER ASSIGNED IDENTITY ####" : {}
         }

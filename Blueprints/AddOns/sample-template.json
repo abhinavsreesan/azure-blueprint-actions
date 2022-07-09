@@ -1,0 +1,22 @@
+{
+    "kind": "template",
+    "properties": {
+        "displayName": "#### DISPLAY NAME OF THE ARTIFACT(NOT THE ACTUAL NAME) ####",
+        "dependsOn": ["#### Mention the Name of the Artifact on which this one will depend ####"],
+        "template": 
+            {
+                "#### PASTE THE ARM TEMPLATE OF THE RESOURCE TO BE USED HERE": {}
+            },
+        "resourceGroup": "ResourceGroup",
+        "parameters": {
+            "#### PARAMETER-1 FROM ARM TEMPLATE ####" : {
+                "value" : "[parameters('#### PARAMETER NAME FROM THE BLUEPRINT.json ####')]"
+            },
+            "#### PARAMETER-2 FROM ARM TEMPLATE ####" : {
+                "value" : "[parameters('#### PARAMETER NAME FROM THE BLUEPRINT.json ####')]"
+            }
+        }
+    },
+    "type": "Microsoft.Blueprint/blueprints/artifacts",
+    "name": "#### TEMPLATE NAME(NAME TO BE USED IN DEPENDS ON TO CREATE DEPENDANCY) ####"
+}
