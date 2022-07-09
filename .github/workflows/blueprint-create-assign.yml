@@ -1,4 +1,4 @@
-name: Blueprint
+name: Blueprint Create and Assign
 
 on:
   workflow_dipatch:
