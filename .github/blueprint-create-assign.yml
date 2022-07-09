@@ -1,0 +1,44 @@
+name: Blueprint
+
+on:
+  workflow_dipatch:
+    inputs:
+      Blueprint_Name:
+        description: 'Name of the Blueprint to be Deployed'
+        required: true
+
+      Assignement_Name:
+        description: 'Name of the Blueprint to be Deployed'
+        required: true
+
+jobs:
+  Blueprint_Create_Assign:
+    name: Create & Assign Blueprint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create Azure Blueprint
+        uses: neilpeterson/action-create-blueprint@master
+        env:
+          AZURETENANTID: ${{ secrets.AZURETENANTID }}
+          AZURECLIENTID: ${{ secrets.AZURECLIENTID }}
+          AZUREPASSWORD: ${{ secrets.AZUREPASSWORD }}
+        with:
+          scope: Subscription
+          azureSubscriptionID: ${{ secrets.AZURESUBSCRIPTIONID }}
+          blueprintName: ${{ github.events.inputs.Blueprint_Name }}
+          blueprintPath: Blueprints/
+
+      - name: Assign Azure Blueprint
+        uses: neilpeterson/action-assign-blueprint@master
+        env:
+          AZURETENANTID: ${{ secrets.AZURETENANTID }}
+          AZUREPASSWORD: ${{ secrets.AZUREPASSWORD }}
+          AZURECLIENTID: ${{ secrets.AZURECLIENTID }}
+        with:
+          scope: Subscription
+          azureSubscriptionID: ${{ secrets.AZURESUBSCRIPTIONID }}
+          AssignmentName: ${{ github.events.inputs.Assignement_Name }}
+          blueprintName: ${{ github.events.inputs.Blueprint_Name }}
+          AssignmentFilePath: Blueprints/assign.json

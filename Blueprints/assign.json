@@ -1,0 +1,36 @@
+{
+    "identity": {
+        "type": "userAssigned",
+        "tenantId": "#### TENANT_ID ####",
+        "userAssignedIdentities": {
+            "#### RESOURCE ID OF USER ASSIGNED IDENTITY ####" : {}
+        }
+    },
+    "location": "#### LOCATION WITHOUT SPACES ####",
+    "properties":{
+        "blueprintId": "/subscriptions/#### SUBSCRIPTION ID ####/providers/Microsoft.Blueprint/blueprints/#### BLUEPRINT NAME ####",
+        "resourceGroups":{
+            "ResourceGroup": {
+                "name": "#### RESOURCE GROUP NAME ####",
+                "location": "#### LOCATION WITHOUT SPACES ####"
+            }
+        },
+        "locks": {
+            "mode": "none"
+        },
+        "parameters": {
+            "location" : {
+                "value": "#### LOCATION WITHOUT SPACES ####",
+                "metadata": {
+                    "description": "Location where the resources have to be deployed without spaces"
+                }
+            },
+            "storageName" : {
+                "value": "#### STORAGE ACCOUNT NAME (MUST BE UNIQUE) ####",
+                "metadata": {
+                    "description": "Name of the Storage Account"
+                }
+            }
+        }
+    }
+}
