@@ -1,7 +1,7 @@
 name: Blueprint Create and Assign
 
 on:
-  workflow_dipatch:
+  workflow_dispatch:
     inputs:
       Blueprint_Name:
         description: 'Name of the Blueprint to be Deployed'
